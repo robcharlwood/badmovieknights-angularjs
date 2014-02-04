@@ -13,7 +13,6 @@ script:
   - karma start config/karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
   - karma start config/karma-e2e.conf.js --reporters=dots --browsers=Firefox
   - karma start config/karma.conf.js --no-auto-watch --single-run --reporters=coverage --browsers=Firefox
-  - karma start config/karma-e2e.conf.js --reporters=coverage --browsers=Firefox
 
 after_script:
   - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
