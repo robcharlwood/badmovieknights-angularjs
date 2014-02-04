@@ -35,7 +35,7 @@
       angular.bootstrap(document, ['myApp']);
     });
   </script>
-  <title>My AngularJS App</title>
+  <title>Bad Movie Knights</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-cloak>
