@@ -11,7 +11,7 @@ angular.module('BadMovieKnights.directives', [])
   }])
 
   // directive to hide & show the loading bar whilst views are loading
-  .directive('pendingbar', ['$rootScope',
+  .directive('pendingBar', ['$rootScope',
     function ($rootScope) {
         return {
             link: function (scope, element, attrs) {
@@ -31,7 +31,7 @@ angular.module('BadMovieKnights.directives', [])
   ])
 
   // directive to hide and show the view based on route changes
-  .directive('viewstate', ['$rootScope',
+  .directive('viewState', ['$rootScope',
     function ($rootScope) {
         return {
             link: function (scope, element, attrs) {

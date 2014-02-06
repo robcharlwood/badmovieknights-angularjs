@@ -2,7 +2,6 @@
 
 /* jasmine specs for router config go here */
 describe('$route', function(){
-  beforeEach(module('ngRoute'));
 
   it('should map routes to controllers', function() {
     module('BadMovieKnights');

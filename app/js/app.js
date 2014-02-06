@@ -1,14 +1,15 @@
 'use strict';
 
 // Declare blog module which depends on filters, and services
-angular.module('BadMovieKnights', [
-    'ngRoute',
-    'ngCookies',
-    'ui.bootstrap',
-    'BadMovieKnights.filters',
-    'BadMovieKnights.services',
-    'BadMovieKnights.directives',
-    'BadMovieKnights.controllers'
+angular.module(
+  'BadMovieKnights', [
+      'ngRoute',
+      'ngCookies',
+      'ui.bootstrap',
+      'BadMovieKnights.filters',
+      'BadMovieKnights.services',
+      'BadMovieKnights.directives',
+      'BadMovieKnights.controllers'
   ], function($interpolateProvider){
 
         // update template start and end tags so that we can use
