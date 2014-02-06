@@ -3,7 +3,7 @@
 /* jasmine specs for filters go here */
 
 describe('filter', function() {
-  beforeEach(module('badMovieKnights.filters'));
+  beforeEach(module('BadMovieKnights.filters'));
 
 
   describe('interpolate', function() {

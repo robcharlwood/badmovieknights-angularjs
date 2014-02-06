@@ -3,7 +3,7 @@
 /* jasmine specs for services go here */
 
 describe('service', function() {
-  beforeEach(module('badMovieKnights.services'));
+  beforeEach(module('BadMovieKnights.services'));
 
 
   describe('version', function() {

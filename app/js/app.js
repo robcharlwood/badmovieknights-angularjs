@@ -1,15 +1,30 @@
 'use strict';
 
-
 // Declare blog module which depends on filters, and services
-angular.module('badMovieKnights', [
-  'ngRoute',
-  'badMovieKnights.filters',
-  'badMovieKnights.services',
-  'badMovieKnights.directives',
-  'badMovieKnights.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
+var BadMovieKnights = angular.module('BadMovieKnights', [
+    'ngRoute',
+    'ngCookies',
+    'ui.bootstrap',
+    'BadMovieKnights.filters',
+    'BadMovieKnights.services',
+    'BadMovieKnights.directives',
+    'BadMovieKnights.controllers'
+  ], function($interpolateProvider){
+
+        // update template start and end tags so that we can use
+        // angularjs with django
+        $interpolateProvider.startSymbol("{$$");
+        $interpolateProvider.endSymbol("$$}");
+  }
+);
+
+// setup csrf token
+BadMovieKnights.run(function ($http, $cookies) {
+    $http.defaults.headers.common['X-CSRFToken'] = $cookies['csrftoken'];
+})
+
+// setup routes
+BadMovieKnights.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'partials/blog.html', controller: 'BlogController'});
   $routeProvider.when('/view2', {

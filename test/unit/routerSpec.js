@@ -5,7 +5,7 @@ describe('$route', function(){
   beforeEach(module('ngRoute'));
 
   it('should map routes to controllers', function() {
-    module('badMovieKnights');
+    module('BadMovieKnights');
 
     inject(function($route) {
 

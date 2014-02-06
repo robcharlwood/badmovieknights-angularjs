@@ -3,7 +3,7 @@
 /* jasmine specs for controllers go here */
 
 describe('controllers', function(){
-  beforeEach(module('badMovieKnights.controllers'));
+  beforeEach(module('BadMovieKnights.controllers'));
 
 
   it('should ....', inject(function() {
