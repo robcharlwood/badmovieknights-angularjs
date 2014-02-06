@@ -50,7 +50,14 @@
     </div>
 
     <div class="container">
-      <div ng-view>
+      <div class="row">
+        <div class="span12">
+            <div class="pending-bg" pendingbar>
+                <div class="alert alert-warning">loading ...</div>
+            </div>
+        </div>
+      </div>
+      <div ng-view viewstate>
 
       </div>
     </div><!-- /.container -->

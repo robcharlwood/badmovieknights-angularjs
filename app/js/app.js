@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare blog module which depends on filters, and services
-var BadMovieKnights = angular.module('BadMovieKnights', [
+angular.module('BadMovieKnights', [
     'ngRoute',
     'ngCookies',
     'ui.bootstrap',
@@ -16,15 +16,15 @@ var BadMovieKnights = angular.module('BadMovieKnights', [
         $interpolateProvider.startSymbol("{$$");
         $interpolateProvider.endSymbol("$$}");
   }
-);
+)
 
 // setup csrf token
-BadMovieKnights.run(function ($http, $cookies) {
+.run(function ($http, $cookies) {
     $http.defaults.headers.common['X-CSRFToken'] = $cookies['csrftoken'];
 })
 
 // setup routes
-BadMovieKnights.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'partials/blog.html', controller: 'BlogController'});
   $routeProvider.when('/view2', {
