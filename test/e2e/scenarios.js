@@ -2,28 +2,28 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('my app', function() {
+describe('bad movie knights', function() {
 
   beforeEach(function() {
     browser().navigateTo('app/index.html');
   });
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
+  it('should automatically redirect to / when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/");
   });
 
 
-  describe('view1', function() {
+  describe('blog', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser().navigateTo('#/');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
+    it('should render blog when user navigates to /', function() {
       expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 1/);
+        toMatch(/partial for blog/);
     });
 
   });

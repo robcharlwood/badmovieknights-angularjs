@@ -1,9 +1,7 @@
 'use strict';
 
-/* Services */
+/* Bad movie knights Services */
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+// Version service
+angular.module('badMovieKnights.services', []).
+  value('version', '0.0.1');

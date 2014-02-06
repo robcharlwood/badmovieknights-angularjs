@@ -1,9 +1,10 @@
 'use strict';
 
-/* Controllers */
+/* Bad movie knights AngularJS Controllers */
+angular.module('badMovieKnights.controllers', []).
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+  // Blog controller
+  controller('BlogController', [function() {
 
   }])
   .controller('MyCtrl2', [function() {

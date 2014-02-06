@@ -5,20 +5,20 @@ describe('$route', function(){
   beforeEach(module('ngRoute'));
 
   it('should map routes to controllers', function() {
-    module('myApp');
+    module('badMovieKnights');
 
     inject(function($route) {
 
-      expect($route.routes['/view1'].controller).toBe('MyCtrl1');
-      expect($route.routes['/view1'].templateUrl).
-        toEqual('partials/partial1.html');
+      expect($route.routes['/'].controller).toBe('BlogController');
+      expect($route.routes['/'].templateUrl).
+        toEqual('partials/blog.html');
 
       expect($route.routes['/view2'].controller).toBe('MyCtrl2');
       expect($route.routes['/view2'].templateUrl).
         toEqual('partials/partial2.html');
 
       // otherwise redirect to
-      expect($route.routes[null].redirectTo).toEqual('/view1')
+      expect($route.routes[null].redirectTo).toEqual('/')
     });
   });
 });
