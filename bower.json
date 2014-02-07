@@ -1,0 +1,19 @@
+{
+  "name": "badmovieknights",
+  "version": "0.0.1",
+  "homepage": "https://github.com/robcharlwood/badmovieknights-angularjs",
+  "authors": [
+    "Rob Charlwood <robcharlwood@gmail.com>"
+  ],
+  "description": "Bad Movie Knight Blog - AngularJS Front end",
+  "license": "MIT",
+  "private": true,
+  "main": "./app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
