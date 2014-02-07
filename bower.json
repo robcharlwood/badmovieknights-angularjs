@@ -8,7 +8,7 @@
   "description": "Bad Movie Knight Blog - AngularJS Front end",
   "license": "MIT",
   "private": true,
-  "main": "app",
+  "main": "app/js/app.js",
   "ignore": [
     "**/.*",
     "node_modules",
