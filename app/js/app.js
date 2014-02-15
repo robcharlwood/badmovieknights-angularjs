@@ -24,10 +24,6 @@ angular.module(
 .run(function ($cookieStore, $rootScope, $http) {
     if ($cookieStore.get('djangotoken')) {
       $http.defaults.headers.common['Authorization'] = 'Token ' + $cookieStore.get('djangotoken');
-      //document.getElementById("welcome").style.display = "block";
-      document.getElementById("login-holder").style.display = "none";
-    } else {
-      document.getElementById("login-holder").style.display = "block";
     }
 })
 
