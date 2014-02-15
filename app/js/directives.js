@@ -15,16 +15,12 @@ angular.module('BadMovieKnights.directives', [])
     return {
       restrict: 'A',
         link: function (scope, elem, attrs) {
-
-          var main = document.getElementById("main");
           var login = document.getElementById("login-holder");
 
           var applyLogin = function(good) {
             if (good) {
-              main.style.display = "block";
               login.style.display = "none";
             } else {
-              main.style.display = "none";
               login.style.display = "block";
             }
           }
