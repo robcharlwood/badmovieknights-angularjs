@@ -3,6 +3,7 @@
 // Declare blog module which depends on filters, and services
 angular.module(
   'BadMovieKnights', [
+      'http-auth-interceptor',
       'ngRoute',
       'ngCookies',
       'ui.bootstrap',
@@ -19,9 +20,15 @@ angular.module(
   }
 )
 
-// setup csrf token
-.run(function ($http, $cookies) {
-    $http.defaults.headers.common['X-CSRFToken'] = $cookies['csrftoken'];
+// check for token authentication or show login form
+.run(function ($cookieStore, $rootScope, $http) {
+    if ($cookieStore.get('djangotoken')) {
+      $http.defaults.headers.common['Authorization'] = 'Token ' + $cookieStore.get('djangotoken');
+      //document.getElementById("welcome").style.display = "block";
+      document.getElementById("login-holder").style.display = "none";
+    } else {
+      document.getElementById("login-holder").style.display = "block";
+    }
 })
 
 // setup routes
