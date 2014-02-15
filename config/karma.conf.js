@@ -7,6 +7,7 @@ module.exports = function(config){
       'app/lib/angular/angular-*.js',
       'test/lib/angular/angular-mocks.js',
       'app/lib/ui-bootstrap-tpls-0.10.0.min.js',
+      'app/lib/http-auth-interceptor.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
     ],
