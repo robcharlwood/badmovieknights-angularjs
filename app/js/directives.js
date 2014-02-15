@@ -63,9 +63,8 @@ angular.module('BadMovieKnights.directives', [])
                 $cookieStore.put('djangotoken', response.token);
                   $http.defaults.headers.common['Authorization'] = 'Token ' + response.token;
                   authService.loginConfirmed();
+              });
           });
-
-        });
 
       }
     }
