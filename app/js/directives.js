@@ -41,14 +41,6 @@ angular.module('BadMovieKnights.directives', [])
   .directive('login', function($http, $cookieStore, authService) {
     return {
       restrict: 'A',
-      template: " <form> " +
-                  "<label>Username</label>" +
-                  "<input type='text' ng-model='username'>" +
-                  "<label>Password</label>" +
-                  "<input type='password' ng-model='password'>" +
-                  "<br>" +
-                  "<input type='submit'>" +
-              "</form>",
       link: function(scope, elem, attrs) {
 
         elem.bind('submit', function() {
