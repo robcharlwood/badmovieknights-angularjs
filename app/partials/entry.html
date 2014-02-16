@@ -3,6 +3,7 @@
         <div class="row">
             <div class="span9">
                 <h3>{$$ entry.title $$}</h3>
+                <img ng-show="entry.image_full_url" src="{$$ entry.image_full_url $$}" />
                 <div ng-bind-html="entry.html_content"></div>
                 <p>
                     <small>{$$ entry.created_on $$}</small>
