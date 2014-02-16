@@ -8,6 +8,9 @@ module.exports = function(config){
       'test/lib/angular/angular-mocks.js',
       'app/lib/ui-bootstrap-tpls-0.10.0.min.js',
       'app/lib/http-auth-interceptor.js',
+      'app/lib/angular-translate/angular-translate.min.js',
+      'app/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+      'app/lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
     ],
