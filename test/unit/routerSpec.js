@@ -12,9 +12,9 @@ describe('$route', function(){
       expect($route.routes['/'].templateUrl).
         toEqual('partials/blog.html');
 
-      expect($route.routes['/view2'].controller).toBe('MyCtrl2');
-      expect($route.routes['/view2'].templateUrl).
-        toEqual('partials/partial2.html');
+      expect($route.routes['/entry/:id'].controller).toBe('BlogEntryController');
+      expect($route.routes['/entry/:id'].templateUrl).
+        toEqual('partials/entry.html');
 
       // otherwise redirect to
       expect($route.routes[null].redirectTo).toEqual('/')

@@ -7,6 +7,8 @@ angular.module('BadMovieKnights.controllers', []).
   controller('BlogController', ['$scope', 'entries', function($scope, entries) {
     $scope.entries = entries;
   }])
-  .controller('MyCtrl2', [function() {
 
+  // blog entry controller
+  .controller('BlogEntryController', ['$scope', 'entry', function($scope, entry) {
+    $scope.entry = entry;
   }]);

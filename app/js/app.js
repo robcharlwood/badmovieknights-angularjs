@@ -39,7 +39,15 @@ angular.module(
           }
       }
   });
-  $routeProvider.when('/view2', {
-    templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
+  $routeProvider.when("/entry/:id", {
+      templateUrl: "partials/entry.html",
+      controller: "BlogEntryController",
+      resolve: {
+          entry: function ($route, EntryService) {
+              var entryId = $route.current.params.id
+              return EntryService.get(entryId);
+          }
+      }
+  });
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
