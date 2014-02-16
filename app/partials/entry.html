@@ -3,9 +3,7 @@
         <div class="row">
             <div class="span9">
                 <h3>{$$ entry.title $$}</h3>
-                <p>
-                    {$$ entry.content $$}
-                </p>
+                <div ng-bind-html="entry.html_content"></div>
                 <p>
                     <small>{$$ entry.created_on $$}</small>
                     <small><b>by</b> {$$ entry.author $$}</small>

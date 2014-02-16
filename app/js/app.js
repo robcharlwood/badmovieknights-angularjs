@@ -6,6 +6,7 @@ angular.module(
       'http-auth-interceptor',
       'ngRoute',
       'ngCookies',
+      'ngSanitize',
       'ui.bootstrap',
       'BadMovieKnights.filters',
       'BadMovieKnights.services',
