@@ -30,8 +30,15 @@ angular.module(
 
 // setup routes
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'partials/blog.html', controller: 'BlogController'});
+  $routeProvider.when("/", {
+      templateUrl: "partials/blog.html",
+      controller: "BlogController",
+      resolve: {
+          entries: function (EntryService) {
+              return EntryService.list();
+          }
+      }
+  });
   $routeProvider.when('/view2', {
     templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
   $routeProvider.otherwise({redirectTo: '/'});
