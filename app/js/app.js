@@ -8,6 +8,7 @@ angular.module(
       'ngCookies',
       'ngSanitize',
       'ui.bootstrap',
+      'pascalprecht.translate',
       'BadMovieKnights.filters',
       'BadMovieKnights.services',
       'BadMovieKnights.directives',
@@ -22,10 +23,15 @@ angular.module(
 )
 
 // check for token authentication or show login form
-.run(function ($cookieStore, $rootScope, $http) {
+.run(function ($cookieStore, $rootScope, $http, $translate) {
+
+    // apply token and language to api calls if the relevant cookies are set
     if ($cookieStore.get('djangotoken')) {
       $http.defaults.headers.common['Authorization'] = 'Token ' + $cookieStore.get('djangotoken');
       document.getElementById("login-holder").style.display = "none";
+    }
+    if ($cookieStore.get('NG_TRANSLATE_LANG_KEY')) {
+      $http.defaults.headers.common['Accept-Language'] = $cookieStore.get('NG_TRANSLATE_LANG_KEY');
     }
 })
 
@@ -51,4 +57,21 @@ angular.module(
       }
   });
   $routeProvider.otherwise({redirectTo: '/'});
+}])
+
+// configure translations
+.config(['$translateProvider', function($translateProvider) {
+
+  // load in translations - don't like the translations inline
+  $translateProvider.useStaticFilesLoader({
+    prefix: 'l10n/',
+    suffix: '.json'
+  });
+
+  // Tell the module what language to use by default
+  $translateProvider.preferredLanguage('en');
+
+  // Tell the module to store the language in the cookies
+  $translateProvider.useCookieStorage();
+
 }]);

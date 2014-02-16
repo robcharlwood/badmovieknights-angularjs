@@ -9,7 +9,7 @@
                             <h3>{$$ entry.title $$}</h3>
                         </a>
                         <div class="meta clips-note">
-                            <p>{$$ entry.content $$}</p>
+                            <div ng-bind-html="entry.html_content"></div>
                         </div>
                     </div>
                 </div>
