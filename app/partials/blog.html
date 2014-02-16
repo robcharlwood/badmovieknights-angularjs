@@ -1,1 +1,19 @@
-<p>This is the partial for blog.</p>
+<div class="row">
+    <div class="span9 main">
+        <div class="row" ng-repeat="entry in entries">
+            <div class="span9">
+                <div class="bg"></div>
+                <div class="overlay">
+                    <div class="content">
+                        <a class="clip-open" href="#">
+                            <h3>{{ entry.title }}</h3>
+                        </a>
+                        <div class="meta clips-note">
+                            <p>{{ entry.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
