@@ -22,8 +22,7 @@ describe('bad movie knights', function() {
 
 
     it('should render blog when user navigates to /', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for blog/);
+      expect(browser().location().url()).toBe("/");
     });
 
   });
