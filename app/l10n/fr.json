@@ -4,5 +4,8 @@
   "ENGLISH": "Inglés",
   "SPANISH": "Espagnol",
   "FRENCH": "Français",
-  "LOADING": "Chargement"
+  "LOADING": "Chargement",
+  "USERNAME": "Nom d'utilisateur",
+  "PASSWORD": "Mot de passe",
+  "LOGIN": "Connexion"
 }

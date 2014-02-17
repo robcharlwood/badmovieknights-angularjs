@@ -4,5 +4,8 @@
   "ENGLISH": "English",
   "SPANISH": "Spanish",
   "FRENCH": "French",
-  "LOADING": "Loading"
+  "LOADING": "Loading",
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "LOGIN": "Log in"
 }

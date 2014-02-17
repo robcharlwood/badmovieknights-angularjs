@@ -4,5 +4,8 @@
   "ENGLISH": "Inglés",
   "SPANISH": "Español",
   "FRENCH": "Francés",
-  "LOADING": "Loading"
+  "LOADING": "Loading",
+  "USERNAME": "Nombre de usuario",
+  "PASSWORD": "Contraseña",
+  "LOGIN": "Iniciar la sesión"
 }

@@ -93,12 +93,12 @@
       <div id="login-holder">
         <div login>
             <form>
-                <label>Username</label>
+                <label>{$$ 'USERNAME' | translate $$}</label>
                 <input type='text' ng-model='username'>
-                <label>Password</label>
+                <label>{$$ 'PASSWORD' | translate $$}</label>
                 <input type='password' ng-model='password'>
                 <br>
-                <input type='submit'>
+                <input type='submit' value="{$$ 'LOGIN' | translate $$}">
             </form>
         </div>
       </div>
