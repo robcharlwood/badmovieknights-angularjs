@@ -4,9 +4,10 @@
 angular.module('BadMovieKnights.controllers', [])
 
   // l10n controller
-  .controller('L10nController', ['$scope', '$translate', function($scope, $translate){
+  .controller('L10nController', ['$scope', '$http', '$translate', function($scope, $http, $translate){
     $scope.setLang = function(langKey) {
         $translate.use(langKey);
+        $http.defaults.headers.common['Accept-Language'] = langKey
     };
   }])
 
