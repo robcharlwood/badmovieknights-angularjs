@@ -37,10 +37,12 @@
     <script src="js/filters.js"></script>
     <script src="js/directives.js"></script>
     <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
-    <script src="lib/http-auth-interceptor.js"></script>
     <script src="lib/angular-translate/angular-translate.min.js"></script>
     <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
     <script src="lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/angular-underscore/angular-underscore.min.js"></script>
+    <script src="lib/underscore.string/dist/underscore.string.min.js"></script>
   </head>
 
   <body auth-application ng-controller="L10nController" class="ng-cloak">
@@ -86,20 +88,6 @@
             <div class="pending-bg" pending-bar>
                 <div class="alert alert-warning">{$$ 'LOADING' | translate $$}...</div>
             </div>
-        </div>
-      </div>
-
-      <!-- Login Form -->
-      <div id="login-holder">
-        <div login>
-            <form>
-                <label>{$$ 'USERNAME' | translate $$}</label>
-                <input type='text' ng-model='username'>
-                <label>{$$ 'PASSWORD' | translate $$}</label>
-                <input type='password' ng-model='password'>
-                <br>
-                <input type='submit' value="{$$ 'LOGIN' | translate $$}">
-            </form>
         </div>
       </div>
 

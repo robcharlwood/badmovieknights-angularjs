@@ -3,11 +3,11 @@
 // Declare blog module which depends on filters, and services
 angular.module(
   'BadMovieKnights', [
-      'http-auth-interceptor',
       'ngRoute',
       'ngCookies',
       'ngSanitize',
       'ui.bootstrap',
+      'angular-underscore',
       'pascalprecht.translate',
       'BadMovieKnights.filters',
       'BadMovieKnights.services',
@@ -23,16 +23,29 @@ angular.module(
 )
 
 // check for token authentication or show login form
-.run(function ($cookieStore, $rootScope, $http, $translate) {
+.run(function ($cookieStore, $rootScope, $http, $translate, AuthenticationService, SessionService, $location) {
 
-    // apply token and language to api calls if the relevant cookies are set
-    if ($cookieStore.get('djangotoken')) {
-      $http.defaults.headers.common['Authorization'] = 'Token ' + $cookieStore.get('djangotoken');
-      document.getElementById("login-holder").style.display = "none";
-    }
+    // language restoration based on cookie
     if ($cookieStore.get('NG_TRANSLATE_LANG_KEY')) {
       $http.defaults.headers.common['Accept-Language'] = $cookieStore.get('NG_TRANSLATE_LANG_KEY');
     }
+
+    // handle login malarky
+    var routesThatRequireAuth = ['/entry/1',];
+
+    // check if current location matches route
+    var routeClean = function (route) {
+      return _.find(routesThatRequireAuth,
+        function (noAuthRoute) {
+          return _.str.startsWith(route, noAuthRoute);
+        });
+    };
+
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+      if (routeClean($location.url()) && !AuthenticationService.isLoggedIn()) {
+        $location.path('/login');
+      }
+    });
 })
 
 // setup routes
@@ -56,6 +69,10 @@ angular.module(
           }
       }
   });
+  $routeProvider.when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'LoginController'
+  });
   $routeProvider.otherwise({redirectTo: '/'});
 }])
 
@@ -74,4 +91,28 @@ angular.module(
   // Tell the module to store the language in the cookies
   $translateProvider.useCookieStorage();
 
+}])
+
+// setup auth 401 interceptor
+.config(['$httpProvider', function($httpProvider) {
+  var logsOutUserOn401 = ['$q', '$location', 'SessionService', function ($q, $location, SessionService) {
+    var success = function (response) {
+      return response;
+    };
+
+    var error = function (response) {
+      if (response.status === 401) {
+        $location.path('/login');
+        return $q.reject(response);
+      } else {
+        return $q.reject(response);
+      }
+    };
+
+    return function (promise) {
+      return promise.then(success, error);
+    };
+  }];
+
+  $httpProvider.responseInterceptors.push(logsOutUserOn401);
 }]);

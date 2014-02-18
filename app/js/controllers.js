@@ -12,11 +12,18 @@ angular.module('BadMovieKnights.controllers', [])
   }])
 
   // Blog controller
-  .controller('BlogController', ['$scope', 'entries', '$translate', function($scope, entries, $translate) {
+  .controller('BlogController', ['$scope', 'entries', function($scope, entries) {
     $scope.entries = entries;
   }])
 
   // blog entry controller
-  .controller('BlogEntryController', ['$scope', 'entry', '$translate', function($scope, entry, $translate) {
+  .controller('BlogEntryController', ['$scope', 'entry', function($scope, entry) {
     $scope.entry = entry;
+  }])
+
+  // login controller
+  .controller('LoginController', ['$scope', 'AuthenticationService', function($scope, AuthenticationService) {
+    $scope.loginUser = function() {
+      AuthenticationService.login({username: 'robcharlwood', password: 'password123'});
+    };
   }]);

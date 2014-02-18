@@ -1,0 +1,14 @@
+<!-- Login Form -->
+<div id="login-holder">
+<div login>
+    <form>
+        <label>{$$ 'USERNAME' | translate $$}</label>
+        <input type='text' ng-model='username'>
+        <label>{$$ 'PASSWORD' | translate $$}</label>
+        <input type='password' ng-model='password'>
+        <br>
+        <input type='submit' value="{$$ 'LOGIN' | translate $$}">
+        <p><a href="#" ng-click="loginUser()">Log in as user</a></p>
+    </form>
+</div>
+</div>
