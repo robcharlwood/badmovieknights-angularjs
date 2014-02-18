@@ -1,0 +1,22 @@
+{
+  "name": "angular-underscore",
+  "main": "angular-underscore.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/floydsoft/angular-underscore",
+  "_release": "2943b5fd1e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2943b5fd1e2b35ac7ad0e780a4814e89a63d8ff3"
+  },
+  "_source": "git://github.com/floydsoft/angular-underscore.git",
+  "_target": "*",
+  "_originalSource": "angular-underscore",
+  "_direct": true
+}
