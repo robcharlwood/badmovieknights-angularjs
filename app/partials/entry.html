@@ -1,15 +1,29 @@
 <div class="row">
-    <div class="span9 main">
-        <div class="row">
-            <div class="span9">
-                <h3>{$$ entry.title $$}</h3>
-                <img ng-show="entry.image_full_url" src="{$$ entry.image_full_url $$}" />
-                <div ng-bind-html="entry.content"></div>
-                <p>
-                    <small>{$$ entry.created_on $$}</small>
-                    <small><b>by</b> {$$ entry.author $$}</small>
-                </p>
-            </div>
-        </div>
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><a href="#!/">{$$ 'HOME' | translate $$}</a>
+            </li>
+            <li class="active">{$$ entry.title $$}</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>{$$ entry.title $$}</h1>
+        <hr>
+        <p>{$$ 'POSTED_ON' | translate $$} {$$ entry.creation_date $$} {$$ 'BY' | translate $$} {$$ entry.author $$}</a>
+        </p>
+        <hr>
+        <img src="http://placehold.it/900x300" class="img-responsive">
+        <hr>
+        <div ng-bind-html="entry.content"></div>
+        <hr>
+        <a class="btn btn-primary" id="edit_button" edit-enabled href="#!/admin/entry/{$$ entry.id $$}/">{$$ 'EDIT_ENTRY' | translate $$}<i class="fa fa-angle-right"></i></a>
+        <hr>
+        <dir-disqus disqus-shortname="badmovieknights"
+            disqus-url="http://badmovieknights.appspot.com#!/entry/{$$ entry.id $$}"
+            disqus-title="{$$ entry.title $$}">
+        </dir-disqus>
     </div>
 </div>

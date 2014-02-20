@@ -1,5 +1,8 @@
 {
   "TITLE": "Bad Movie Knights",
+  "SUBTITLE": "Their failure is our entertainment",
+  "HOME": "Home",
+  "RECENT_ENTRIES": "Recent entries",
   "TOGGLE_NAV": "Toggle navigation",
   "ENGLISH": "English",
   "SPANISH": "Spanish",
@@ -7,5 +10,23 @@
   "LOADING": "Loading",
   "USERNAME": "Username",
   "PASSWORD": "Password",
-  "LOGIN": "Log in"
+  "LOGIN": "Log in",
+  "LOGOUT": "Logout",
+  "EDIT_ENTRY": "Edit Entry",
+  "EDIT_TRANSLATION_FOR": "Edit {$$ value | uppercase $$} translation",
+  "CREATE_ENTRY": "Create entry",
+  "ENTRY_TITLE": "Title",
+  "CONTENT": "Content",
+  "PUBLISHED": "Published?",
+  "SAVE": "Save",
+  "CANCEL": "Cancel",
+  "CREATE_ENTRY_TRANSLATION": "Create entry translation",
+  "DELETE": "Delete",
+  "TRANSLATIONS": "Translations",
+  "CREATE_TRANSLATION": "Create new translation",
+  "EDIT_ENTRY_TRANSLATION": "Edit translation",
+  "PLEASE_SELECT": "Please select",
+  "READ_MORE": "Read more",
+  "BY": "by",
+  "POSTED_ON": "Posted on"
 }

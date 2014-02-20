@@ -43,10 +43,10 @@
     <script src="lib/underscore/underscore.js"></script>
     <script src="lib/angular-underscore/angular-underscore.min.js"></script>
     <script src="lib/underscore.string/dist/underscore.string.min.js"></script>
+    <script src="lib/marked/lib/marked.js"></script>
   </head>
 
-  <body auth-application ng-controller="L10nController" class="ng-cloak">
-
+  <body login-logout ng-controller="L10nController" class="ng-cloak">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -56,25 +56,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="#!/">
             {$$ 'TITLE' | translate $$}
           </a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="#" ng-click="setLang('en')">
+              <a href="#!" ng-click="setLang('en')">
                 {$$ 'ENGLISH' | translate $$}
               </a>
             </li>
             <li>
-              <a href="#" ng-click="setLang('es')">
+              <a href="#!" ng-click="setLang('es')">
                 {$$ 'SPANISH' | translate $$}
               </a>
             </li>
             <li>
-              <a href="#" ng-click="setLang('fr')">
+              <a href="#!" ng-click="setLang('fr')">
                 {$$ 'FRENCH' | translate $$}
+              </a>
+            </li>
+            <li>
+              <a href="#!/login" id='login-link'>
+                {$$ 'LOGIN' | translate $$}
+              </a>
+              <a href="#!/logout" id='logout-link'>
+                {$$ 'LOGOUT' | translate $$}
               </a>
             </li>
           </ul>
@@ -95,5 +103,17 @@
 
       </div>
     </div><!-- /.container -->
+
+    <div class="container">
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Rob Charlwood 2014</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
   </body>
 </html>

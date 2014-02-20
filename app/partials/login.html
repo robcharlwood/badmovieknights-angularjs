@@ -1,14 +1,33 @@
-<!-- Login Form -->
-<div id="login-holder">
-<div login>
-    <form>
-        <label>{$$ 'USERNAME' | translate $$}</label>
-        <input type='text' ng-model='username'>
-        <label>{$$ 'PASSWORD' | translate $$}</label>
-        <input type='password' ng-model='password'>
-        <br>
-        <input type='submit' value="{$$ 'LOGIN' | translate $$}">
-        <p><a href="#" ng-click="loginUser()">Log in as user</a></p>
-    </form>
+<!-- LOGIN FORM -->
+<div class="col-lg-12">
+    <h1 class="page-header">{$$ 'LOGIN' | translate $$}</h1>
 </div>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+        <div id="non_field_errors" class="alert alert-danger" ng-show="non_field_errors">{$$ non_field_errors $$}</div>
+
+        <form ng-submit="processLoginForm()">
+            <!-- USERNAME -->
+            <div id="username-group" class="form-group" ng-class="{ 'has-error' : errorUsername }">
+                <label>{$$ 'USERNAME' | translate $$}</label>
+                <input type="text" name="username" class="form-control" placeholder="{$$ 'USERNAME' | translate $$}" ng-model="formData.username">
+                <span class="help-block" ng-show="errorUsername">{$$ errorUsername $$}</span>
+            </div>
+
+            <!-- PASSWORD -->
+            <div id="password-group" class="form-group" ng-class="{ 'has-error' : errorPassword }">
+                <label>{$$ 'PASSWORD' | translate $$}</label>
+                <input type="password" name="password" class="form-control" placeholder="{$$ 'PASSWORD' | translate $$}" ng-model="formData.password">
+                <span class="help-block" ng-show="errorPassword">{$$ errorPassword $$}</span>
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" class="btn btn-success btn-lg btn-block">
+                {$$ 'LOGIN' | translate $$}
+            </button>
+        </form>
+    </div>
 </div>
