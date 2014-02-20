@@ -26,6 +26,7 @@ angular.module(
 .run(function ($cookieStore, $rootScope, $http, $translate, AuthenticationService, $location) {
 
     // language restoration based on cookie
+    // TODO - Move this into a service
     if ($cookieStore.get('NG_TRANSLATE_LANG_KEY')) {
       $http.defaults.headers.common['Accept-Language'] = $cookieStore.get('NG_TRANSLATE_LANG_KEY');
     }
