@@ -109,7 +109,7 @@ angular.module('BadMovieKnights.controllers', [])
       $scope.errorImage = '';
       for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
-        var api_url = "http://localhost:8080/api/entry/" + $scope.entry.id + '/';
+        var api_url = "https://badmovieknights.appspot.com/api/entry/" + $scope.entry.id + '/';
         $scope.upload = $upload.upload({
           url: api_url,
           method: 'PUT',
