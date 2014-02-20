@@ -15,7 +15,7 @@
         <p>{$$ 'POSTED_ON' | translate $$} {$$ entry.creation_date $$} {$$ 'BY' | translate $$} {$$ entry.author $$}</a>
         </p>
         <hr>
-        <img src="http://placehold.it/900x300" class="img-responsive">
+        <img src="{$$ entry.image $$}" class="img-responsive">
         <hr>
         <div ng-bind-html="entry.content"></div>
         <hr>
