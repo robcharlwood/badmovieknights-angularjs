@@ -7,6 +7,7 @@ angular.module(
       'ngCookies',
       'ngSanitize',
       'ui.bootstrap',
+      'angularFileUpload',
       'angular-underscore',
       'pascalprecht.translate',
       'BadMovieKnights.filters',

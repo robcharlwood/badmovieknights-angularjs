@@ -73,9 +73,9 @@ angular.module('BadMovieKnights.controllers', [])
 
   // blog edit entry controller
   .controller('BlogEditEntryController', [
-    '$scope', '$window', '$location', '$sce',
+    '$scope', '$window', '$location', '$sce', '$upload',
     'EntryService', 'entry', 'translations', function(
-        $scope, $window, $location, $sce, EntryService, entry, translations) {
+        $scope, $window, $location, $sce, $upload, EntryService, entry, translations) {
     $scope.entry = entry;
     $scope.translations = translations;
 
@@ -100,6 +100,31 @@ angular.module('BadMovieKnights.controllers', [])
             $location.path('/');
         }
       );
+    };
+
+    // method to upload image
+    // TODO - move this to the EntryService
+    $scope.onFileSelect = function($files) {
+      $scope.successImage = '';
+      $scope.errorImage = '';
+      for (var i = 0; i < $files.length; i++) {
+        var file = $files[i];
+        var api_url = "http://localhost:8080/api/entry/" + $scope.entry.id + '/';
+        $scope.upload = $upload.upload({
+          url: api_url,
+          method: 'PUT',
+          headers: {'Content-Type': undefined },
+          transformRequest: angular.identity,
+          data: {'image': file},
+          file: file,
+        }).success(function(data, status, headers, config) {
+            $scope.successImage = 'Upload successful!';
+        }).error(function(data, status, headers, config) {
+          if (data.image) {
+            $scope.errorImage = data.image[0];
+          }
+        });
+      }
     };
 
     // method to handle form submission
