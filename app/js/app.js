@@ -43,12 +43,10 @@ angular.module(
         });
     };
 
-    // get logged in status
-    var loggedIn = AuthenticationService.isLoggedIn();
-
     // if we are accessing a protected area and we are not logged in,
     // then redirect to login
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
+      var loggedIn = AuthenticationService.isLoggedIn();
       if (routeClean($location.url()) && !loggedIn) {
         $location.path('/login');
       }
