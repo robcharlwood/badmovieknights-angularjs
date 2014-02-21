@@ -10,7 +10,7 @@ angular.module('BadMovieKnights.services', [])
 
   // entry service
   .factory('EntryService', function ($http, $q) {
-    var api_url = "https://badmovieknights.appspot.com/api/entry/";
+    var api_url = "http://localhost:8080/api/entry/";
     return {
         get: function (entry_id) {
             var url = api_url + entry_id + "/";
@@ -36,11 +36,11 @@ angular.module('BadMovieKnights.services', [])
                 });
             return defer.promise;
         },
-        list: function () {
+        list: function (page) {
             var defer = $q.defer();
-            $http({method: 'GET', url: api_url}).
+            $http({method: 'GET', url: api_url + '?page=' + page}).
                 success(function (data, status, headers, config) {
-                    defer.resolve(data);
+                    defer.resolve(data.results);
                 }).error(function (data, status, headers, config) {
                     defer.reject(status);
                 });
@@ -77,7 +77,7 @@ angular.module('BadMovieKnights.services', [])
 
   // entry service
   .factory('EntryTranslationService', function ($http, $q) {
-    var api_url = "https://badmovieknights.appspot.com/api/entry/";
+    var api_url = "http://localhost:8080/api/entry/";
     return {
         get: function (entry_id, trans_id) {
             var url = api_url + entry_id + "/translations/" + trans_id + '/';
@@ -151,7 +151,7 @@ angular.module('BadMovieKnights.services', [])
         // login api call - uses promises to return error messages to the controller
         login: function (user) {
           var deferred = $q.defer();
-          $http.post("https://badmovieknights.appspot.com/api/auth/token/", user)
+          $http.post("http://localhost:8080/api/auth/token/", user)
 
               // on success, set the cookie and http headers
               .success(function(response) {

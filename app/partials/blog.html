@@ -12,22 +12,25 @@
     </div>
 </div>
 
-<div class="row" style="margin-bottom:20px;" ng-repeat="entry in entries">
+<div infinite-scroll="infiniteScrollEntries()" infinite-scroll-distance="0">
+    <div class="row" style="margin-bottom:20px;" ng-repeat="entry in entries">
 
-    <div class="col-md-1">
-        <p>{$$ entry.creation_date $$}</p>
-    </div>
-    <div class="col-md-5">
-        <a href="#!/entry/{$$ entry.id $$}">
-            <img src="{$$ entry.image $$}" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-md-6">
-        <h3><a href="#!/entry/{$$ entry.id $$}">{$$ entry.title $$}</a>
-        </h3>
-        <p>{$$ 'BY' | translate $$} {$$ entry.author $$}</p>
+        <div class="col-md-1">
+            <p>{$$ entry.creation_date $$}</p>
+        </div>
+        <div class="col-md-5">
+            <a href="#!/entry/{$$ entry.id $$}">
+                <img src="{$$ entry.image $$}" class="img-responsive">
+            </a>
+        </div>
+        <div class="col-md-6">
+            <h3><a href="#!/entry/{$$ entry.id $$}">{$$ entry.title $$}</a>
+            </h3>
+            <p>{$$ 'BY' | translate $$} {$$ entry.author $$}</p>
 
-        <a class="btn btn-primary" href="#!/entry/{$$ entry.id $$}">{$$ 'READ_MORE' | translate $$}<i class="fa fa-angle-right"></i></a>
+            <a class="btn btn-primary" href="#!/entry/{$$ entry.id $$}">{$$ 'READ_MORE' | translate $$}<i class="fa fa-angle-right"></i></a>
+        </div>
+        <hr>
     </div>
-    <hr>
+    <div ng-show='busy'>{$$ 'LOADING' | translate $$}</div>
 </div>

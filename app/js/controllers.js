@@ -12,8 +12,22 @@ angular.module('BadMovieKnights.controllers', [])
   }])
 
   // Blog controller
-  .controller('BlogController', ['$scope', 'entries', function($scope, entries) {
+  .controller('BlogController', ['$scope', 'EntryService', 'entries', function($scope, EntryService, entries) {
     $scope.entries = entries;
+    $scope.page = 2;
+    $scope.busy = false;
+    $scope.infiniteScrollEntries = function(){
+      if ($scope.busy) return;
+      $scope.busy = true;
+      EntryService.list($scope.page).then(
+        function(data){
+            for(var i=0; i < data.length; i++){
+              $scope.entries.push(data[i]);
+            }
+            $scope.page = $scope.page + 1;
+        });
+      $scope.busy = false;
+    };
   }])
 
   // blog entry controller
@@ -109,7 +123,7 @@ angular.module('BadMovieKnights.controllers', [])
       $scope.errorImage = '';
       for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
-        var api_url = "https://badmovieknights.appspot.com/api/entry/" + $scope.entry.id + '/';
+        var api_url = "http://localhost:8080/api/entry/" + $scope.entry.id + '/';
         $scope.upload = $upload.upload({
           url: api_url,
           method: 'PUT',

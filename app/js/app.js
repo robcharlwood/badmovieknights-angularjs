@@ -10,6 +10,7 @@ angular.module(
       'angularFileUpload',
       'angular-underscore',
       'pascalprecht.translate',
+      'infinite-scroll',
       'BadMovieKnights.filters',
       'BadMovieKnights.services',
       'BadMovieKnights.directives',
@@ -67,7 +68,7 @@ angular.module(
               if (AuthenticationService.isLoggedIn()){
                 delete $http.defaults.headers.common["Authorization"];
               }
-              return EntryService.list();
+              return EntryService.list(1);
           }
       }
   });
