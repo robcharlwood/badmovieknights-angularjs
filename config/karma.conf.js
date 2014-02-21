@@ -9,6 +9,7 @@ module.exports = function(config){
       'app/lib/underscore.string/dist/underscore.string.min.js',
       'app/lib/angular/angular-*.js',
       'test/lib/angular/angular-mocks.js',
+      'app/lib/ng-file-upload/angular-file-upload.min.js',
       'app/lib/ui-bootstrap-tpls-0.10.0.min.js',
       'app/lib/angular-translate/angular-translate.min.js',
       'app/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
