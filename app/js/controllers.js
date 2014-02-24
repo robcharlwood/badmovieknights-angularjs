@@ -89,7 +89,7 @@ angular.module('BadMovieKnights.controllers', [])
 
     // method to cancel the editing of a blog entry
     $scope.cancelEdit = function() {
-      $location.path('/entry/' + entry.id);
+      $location.path('/');
     };
 
     // method to handle entry delete
@@ -139,7 +139,7 @@ angular.module('BadMovieKnights.controllers', [])
       // attempt the update
       EntryService.update($scope.entry).then(
         function(data){
-            $location.path('/entry/' + entry.id);
+            $location.path('/');
         },
         function(data){
           if (data.title) {
