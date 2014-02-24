@@ -13,42 +13,41 @@
     <h1 class="page-header">{$$ 'CREATE_ENTRY' | translate $$}</h1>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-
+<form ng-submit="processCreateEntryForm()">
+    <div class="panel panel-default">
+      <div class="panel-body">
         <div id="non_field_errors" class="alert alert-danger" ng-show="non_field_errors">{$$ non_field_errors $$}</div>
 
-        <form ng-submit="processCreateEntryForm()">
-            <!-- TITLE -->
-            <div id="title-group" class="form-group" ng-class="{ 'has-error' : errorTitle }">
-                <label>{$$ 'ENTRY_TITLE' | translate $$}</label>
-                <input type="text" name="title" class="form-control" placeholder="{$$ 'ENTRY_TITLE' | translate $$}" ng-model="entry.title">
-                <span class="help-block" ng-show="errorTitle">{$$ errorTitle $$}</span>
-            </div>
+        <!-- TITLE -->
+        <div id="title-group" class="form-group" ng-class="{ 'has-error' : errorTitle }">
+            <label>{$$ 'ENTRY_TITLE' | translate $$}</label>
+            <input type="text" name="title" class="form-control" placeholder="{$$ 'ENTRY_TITLE' | translate $$}" ng-model="entry.title">
+            <span class="help-block" ng-show="errorTitle">{$$ errorTitle $$}</span>
+        </div>
 
-            <!-- CONTENT -->
-            <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
-                <label>{$$ 'CONTENT' | translate $$}</label>
-                <textarea class="form-control" name="content" ng-model="entry.content" rows="10" ng-change='markdownToHtml()'></textarea>
-                <span class="help-block" ng-show="errorContent">{$$ errorContent $$}</span>
-            </div>
-            <div class='markdown-preview' ng-bind-html='PreviewHTML' /></div>
+        <!-- CONTENT -->
+        <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+            <label>{$$ 'CONTENT' | translate $$}</label>
+            <textarea class="form-control" name="content" ng-model="entry.content" rows="10" ng-change='markdownToHtml()'></textarea>
+            <span class="help-block" ng-show="errorContent">{$$ errorContent $$}</span>
+        </div>
+        <div class='markdown-preview' ng-bind-html='PreviewHTML' /></div>
 
-            <!-- PUBLISHED -->
-            <div id="published-group" class="form-inline" ng-class="{ 'has-error' : errorPublished }">
-                <label class="checkbox">{$$ 'PUBLISHED' | translate $$}
-                    <input type="checkbox" name="published" class="form-control" ng-model="entry.published">
-                </label>
-                <span class="help-block" ng-show="errorPublished">{$$ errorPublished $$}</span>
-            </div>
+        <!-- PUBLISHED -->
+        <div id="published-group" class="form-inline" ng-class="{ 'has-error' : errorPublished }">
+            <label class="checkbox">{$$ 'PUBLISHED' | translate $$}
+                <input type="checkbox" name="published" class="form-control" ng-model="entry.published">
+            </label>
+            <span class="help-block" ng-show="errorPublished">{$$ errorPublished $$}</span>
+        </div>
 
-            <!-- SUBMIT BUTTON -->
-            <button type="submit" class="btn btn-success btn-lg btn-block">
-                {$$ 'SAVE' | translate $$}
-            </button>
-            <button type="button" ng-click="cancelCreate()" class="btn btn-lg btn-block">
-                {$$ 'CANCEL' | translate $$}
-            </button>
-        </form>
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" class="btn btn-success btn-lg btn-block">
+            {$$ 'SAVE' | translate $$}
+        </button>
+        <button type="button" ng-click="cancelCreate()" class="btn btn-lg btn-block">
+            {$$ 'CANCEL' | translate $$}
+        </button>
+      </div>
     </div>
-</div>
+</form>
