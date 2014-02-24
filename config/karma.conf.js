@@ -14,6 +14,7 @@ module.exports = function(config){
       'app/lib/angular-translate/angular-translate.min.js',
       'app/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
       'app/lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js',
+      'app/lib/ngInfiniteScroll/ng-infinite-scroll.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
     ],
