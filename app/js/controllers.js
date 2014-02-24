@@ -54,7 +54,7 @@ angular.module('BadMovieKnights.controllers', [])
       // attempt the create
       EntryService.create($scope.entry).then(
         function(data){
-            $location.path('/');
+            $location.path('/entry/' + data.id);
         },
         function(data){
           if (data.title) {
@@ -89,7 +89,7 @@ angular.module('BadMovieKnights.controllers', [])
 
     // method to cancel the editing of a blog entry
     $scope.cancelEdit = function() {
-      $location.path('/');
+      $location.path('/entry/' + $scope.entry.id);
     };
 
     // method to handle entry delete
@@ -139,7 +139,7 @@ angular.module('BadMovieKnights.controllers', [])
       // attempt the update
       EntryService.update($scope.entry).then(
         function(data){
-            $location.path('/');
+            $location.path('/entry/' + $scope.entry.id);
         },
         function(data){
           if (data.title) {

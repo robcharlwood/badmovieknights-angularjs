@@ -12,9 +12,12 @@ angular.module('BadMovieKnights.services', [])
   .factory('EntryService', function ($http, $q) {
     var api_url = "https://badmovieknights.appspot.com/api/entry/";
     return {
-        get: function (entry_id) {
+        get: function (entry_id, edit_mode) {
             var url = api_url + entry_id + "/";
             var defer = $q.defer();
+            if (edit_mode) {
+                url = url + '?edit_mode=true';
+            }
             $http({method: 'GET', url: url}).
                 success(function (data, status, headers, config) {
                     defer.resolve(data);
