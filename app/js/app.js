@@ -62,12 +62,7 @@ angular.module(
       templateUrl: "partials/blog.html",
       controller: "BlogController",
       resolve: {
-          entries: function ($http, EntryService, AuthenticationService) {
-              // if we are logged in, we want to access this view with
-              // the read only serializer - so remove the token header
-              if (AuthenticationService.isLoggedIn()){
-                delete $http.defaults.headers.common["Authorization"];
-              }
+          entries: function ($http, EntryService) {
               return EntryService.list(1);
           }
       }
@@ -78,14 +73,9 @@ angular.module(
       templateUrl: "partials/entry.html",
       controller: "BlogEntryController",
       resolve: {
-          entry: function ($http, $route, EntryService, AuthenticationService) {
-              // if we are logged in, we want to access this view with
-              // the read only serializer - so remove the token header
-              if (AuthenticationService.isLoggedIn()){
-                delete $http.defaults.headers.common["Authorization"];
-              }
+          entry: function ($http, $route, EntryService) {
               var entryId = $route.current.params.id
-              return EntryService.get(entryId);
+              return EntryService.get(entryId, false);
           }
       }
   });
@@ -103,7 +93,7 @@ angular.module(
       resolve: {
           entry: function ($route, EntryService) {
               var entry_id = $route.current.params.id
-              return EntryService.get(entry_id);
+              return EntryService.get(entry_id, true);
           },
           translations: function ($route, EntryTranslationService) {
               var entry_id = $route.current.params.id

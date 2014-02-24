@@ -16,7 +16,9 @@
         <p>{$$ 'POSTED_ON' | translate $$} {$$ entry.creation_date $$} {$$ 'BY' | translate $$} {$$ entry.author $$}</a>
         </p>
         <hr>
-        <img src="{$$ entry.image $$}" class="img-responsive">
+        <span ng-if="entry.image != ''">
+            <img ng-src="{$$ entry.image $$}" class="img-responsive" />
+        </span>
         <hr>
         <div ng-bind-html="entry.content"></div>
         <hr>
