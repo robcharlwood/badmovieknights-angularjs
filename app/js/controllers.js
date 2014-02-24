@@ -54,7 +54,7 @@ angular.module('BadMovieKnights.controllers', [])
       // attempt the create
       EntryService.create($scope.entry).then(
         function(data){
-            $location.path('/entry/' + data.id);
+            $location.path('/');
         },
         function(data){
           if (data.title) {
